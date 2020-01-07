@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+
+                </div>
+                <div class="col-md-4">
+                    <h1>{{ property.title }}</h1>
+                    <h2>{{ property.surface }} m2, {{ property.rooms }} room(s), {{ property.bedrooms }} bedroom(s)</h2>
+                    <p>{{ property.planet }}, {{ property.address }}</p>
+                    <div class="text-primary">{{ property.formattedPrice }} $</div>
+                    <a href="#" class="btn btn-primary">Contact agency</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <p>{{ property.description | nl2br }}</p>
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Description</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <td>Surface</td>
+                        <td>{{ property.surface }} m2</td>
+                    </tr>
+                    <tr>
+                        <td>Room(s)</td>
+                        <td>{{ property.rooms }}</td>
+                    </tr>
+                    <tr>
+                        <td>Bedroom(s)</td>
+                        <td>{{ property.bedrooms }}</td>
+                    </tr>
+                    <tr>
+                        <td>Floor</td>
+                        <td>{{ property.floor }}</td>
+                    </tr>
+                    <tr>
+                        <td>Heat</td>
+                        <td>{{ property.heatType }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <h2>Specificities</h2>
+        </div>
+        <p>{% if property.sold == 0 %} {% else %} Sold {% endif %}</p>
+    </div>
+{% endblock %}
